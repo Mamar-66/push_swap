@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/29 12:19:45 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:38:11 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ bool	is_not_digit(char *str);
 
 //add_pile.c
 char	*word_nb(char *str, int *start);
-void	add_stack(t_list *lst, char *argv_str);
+void	stack_gest(t_list **lst, char *argv_str);
+int		add_stack(t_list *lst, char *str);
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:59:39 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/29 11:16:45 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:56:14 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	is_not_digit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] < '1' || str[i] > '9') && str[i] != '-' && str[i] != ' ')
+		if ((str[i] < '0' || str[i] > '9') && str[i] != '-' && str[i] != ' ')
 		{
 			ft_putstr("not everything is digital\n");
 			return (true);
