@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 12:11:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/29 12:35:02 by omfelk           ###   ########.fr       */
+/*   Created: 2023/11/27 18:59:39 by omfelk            #+#    #+#             */
+/*   Updated: 2023/11/29 11:16:45 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+bool	is_not_digit(char *str)
 {
-	t_list	**stack_a;
-	// t_list	**stack_b;
+	int	i;
 
-	stack_a = (t_list **)malloc(sizeof(t_list));
-	if (argc == 2 && !is_not_digit(argv[1]))
+	i = 0;
+	while (str[i])
 	{
-printf("ok\n");
-		add_stack(*stack_a, argv[1]);
-//printf("%d\n", (*stack_a)->nb);
+		if ((str[i] < '1' || str[i] > '9') && str[i] != '-' && str[i] != ' ')
+		{
+			ft_putstr("not everything is digital\n");
+			return (true);
+		}
+		if (str[i] == '-' && str[i + 1] == '-')
+		{
+		ft_putstr("the caract '-' is double\n");
+			return (true);
+		}
+		i++;
 	}
-	free(stack_a);
-	return (0);
+	return (false);
 }

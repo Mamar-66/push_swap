@@ -7,7 +7,9 @@ CFLAGS	=	-Wall -Werror -Wextra
 SRC_PATH	=	srcs/
 OBJ_PATH	=	objs/
 
-SRC		=	main.c
+SRC		=	main.c error.c \
+			add_pile.c \
+			ft_atoi.c ft_calloc.c ft_putstr.c ft_bzero.c
 
 SRCS	=	$(addprefix $(SRC_PATH), $(SRC))
 

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 12:11:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/29 12:35:02 by omfelk           ###   ########.fr       */
+/*   Created: 2023/10/06 08:23:20 by omfelk            #+#    #+#             */
+/*   Updated: 2023/11/29 10:35:17 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
-	t_list	**stack_a;
-	// t_list	**stack_b;
+	unsigned char	*tab;
+	size_t			i;
 
-	stack_a = (t_list **)malloc(sizeof(t_list));
-	if (argc == 2 && !is_not_digit(argv[1]))
+	tab = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-printf("ok\n");
-		add_stack(*stack_a, argv[1]);
-//printf("%d\n", (*stack_a)->nb);
+		tab[i] = 0;
+		i++;
 	}
-	free(stack_a);
-	return (0);
+	s = tab;
 }
