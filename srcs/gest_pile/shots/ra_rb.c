@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 17:34:08 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 17:36:57 by omfelk           ###   ########.fr       */
+/*   Created: 2023/11/30 17:18:12 by omfelk            #+#    #+#             */
+/*   Updated: 2023/11/30 17:33:08 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	rr(t_list **lst_a, t_list **lst_b)
+void	ra_rb(t_list **lst)
 {
-	ra_rb(lst_a);
-	ra_rb(lst_b);
+	t_list	*tmp;
+	int		swap;
+
+	tmp = *lst;
+	while ((*lst)->next)
+	{
+		swap = (*lst)->nb;
+		(*lst)->nb = (*lst)->next->nb;
+		(*lst)->next->nb = swap;
+		(*lst) = (*lst)->next;
+	}
+	(*lst) = tmp;
 }

@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 17:01:49 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/11/30 17:37:14 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ bool		cmp(int nb1, int nb2);
 // folder shots
 void		sa_sb(t_list **lst);
 void		ss(t_list **lst_a, t_list **lst_b);
+void		ra_rb(t_list **lst);
+void		rr(t_list **lst_a, t_list **lst_b);
 
 /*-----------------------------------------------------------------------------------------*/
 
