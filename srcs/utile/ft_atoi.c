@@ -6,17 +6,19 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:31:01 by omfelk            #+#    #+#             */
-/*   Updated: 2023/10/04 12:37:44 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/11/30 16:08:24 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/push_swap.h"
+
 int	ft_atoi(const char *nptr)
 {
-	int	retur;
-	int	i;
-	int	signe;
+	long int	retour;
+	int			i;
+	int			signe;
 
-	retur = 0;
+	retour = 0;
 	i = 0;
 	signe = 1;
 	while ((nptr[i] >= 9 && nptr[i] <= 13)
@@ -29,10 +31,12 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9' && nptr[i] != '\0')
+		retour = retour * 10 + (nptr[i++] - '0');
+	retour = retour * signe;
+	if (retour < -2147483648 || retour > 2147483647)
 	{
-		retur = retur * 10 + (nptr[i] - '0');
-		i++;
+		ft_putstr("Error int max");
+		exit (1);
 	}
-	retur = retur * signe;
-	return (retur);
+	return (retour);
 }

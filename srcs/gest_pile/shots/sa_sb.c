@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                     :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 18:42:26 by omfelk            #+#    #+#             */
-/*   Updated: 2023/10/09 18:50:49 by omfelk           ###   ########.fr       */
+/*   Created: 2023/11/30 16:06:44 by omfelk            #+#    #+#             */
+/*   Updated: 2023/11/30 16:49:30 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
-void	ft_putstr(char *s)
+void	sa_sb(t_list **lst)
 {
-	size_t	i;
+	int	swap;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
+	swap = (*lst)->nb;
+	(*lst)->nb = (*lst)->next->nb;
+	(*lst)->next->nb = swap;
 }

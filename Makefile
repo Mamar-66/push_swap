@@ -7,9 +7,19 @@ CFLAGS	=	-Wall -Werror -Wextra
 SRC_PATH	=	srcs/
 OBJ_PATH	=	objs/
 
-SRC		=	main.c error.c \
-			add_pile.c \
-			ft_atoi.c ft_calloc.c ft_putstr.c ft_bzero.c
+SRC		=	main.c \
+			error.c \
+\
+			gest_pile/add_pile.c \
+			gest_pile/cmp.c \
+\
+			gest_pile/shots/sa_sb.c \
+			gest_pile/shots/ss.c \
+\
+			utile/ft_atoi.c \
+			utile/ft_calloc.c \
+			utile/ft_putstr.c \
+			utile/ft_bzero.c
 
 SRCS	=	$(addprefix $(SRC_PATH), $(SRC))
 
@@ -27,6 +37,10 @@ $(OBJ_PATH)%.o:	$(SRC_PATH)%.c
 
 $(OBJ_PATH):
 			mkdir $(OBJ_PATH)
+			mkdir $(OBJ_PATH)/gest_pile
+			mkdir $(OBJ_PATH)/gest_pile/shots
+			mkdir $(OBJ_PATH)/utile
+
 
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 18:42:26 by omfelk            #+#    #+#             */
-/*   Updated: 2023/10/09 18:50:49 by omfelk           ###   ########.fr       */
+/*   Created: 2023/10/06 08:23:20 by omfelk            #+#    #+#             */
+/*   Updated: 2023/11/30 16:08:34 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ft_putstr(char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	unsigned char	*tab;
+	size_t			i;
 
+	tab = (unsigned char *)s;
 	i = 0;
-	while (s[i] != '\0')
+	while (i < n)
 	{
-		write(1, &s[i], 1);
+		tab[i] = 0;
 		i++;
 	}
+	s = tab;
 }

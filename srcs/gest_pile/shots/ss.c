@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                     :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 18:42:26 by omfelk            #+#    #+#             */
-/*   Updated: 2023/10/09 18:50:49 by omfelk           ###   ########.fr       */
+/*   Created: 2023/11/30 16:55:46 by omfelk            #+#    #+#             */
+/*   Updated: 2023/11/30 17:00:17 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
-void	ft_putstr(char *s)
+void	ss(t_list **lst_a, t_list **lst_b)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
+	sa_sb(lst_a);
+	sa_sb(lst_b);
 }
