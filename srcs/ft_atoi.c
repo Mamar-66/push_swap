@@ -6,17 +6,17 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:31:01 by omfelk            #+#    #+#             */
-/*   Updated: 2023/10/04 12:37:44 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/11/30 11:52:46 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *nptr)
 {
-	int	retur;
+	int	retour;
 	int	i;
 	int	signe;
 
-	retur = 0;
+	retour = 0;
 	i = 0;
 	signe = 1;
 	while ((nptr[i] >= 9 && nptr[i] <= 13)
@@ -30,9 +30,9 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9' && nptr[i] != '\0')
 	{
-		retur = retur * 10 + (nptr[i] - '0');
+		retour = retour * 10 + (nptr[i] - '0');
 		i++;
 	}
-	retur = retur * signe;
-	return (retur);
+	retour = retour * signe;
+	return (retour);
 }
