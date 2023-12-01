@@ -1,50 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra_rb.c                                            :+:      :+:    :+:   */
+/*   rra_rrb.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 17:18:12 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/01 11:32:40 by omfelk           ###   ########.fr       */
+/*   Created: 2023/12/01 10:34:22 by omfelk            #+#    #+#             */
+/*   Updated: 2023/12/01 11:33:00 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	ra(t_list **lst)
+void	rra(t_list **lst)
 {
 	t_list	*tmp;
-	int		swap;
-	if (!(*lst))
-		return ;
-	tmp = *lst;
-	while ((*lst)->next)
-	{
-		swap = (*lst)->nb;
-		(*lst)->nb = (*lst)->next->nb;
-		(*lst)->next->nb = swap;
+	t_list	*last_lst;
+
+	tmp = (*lst);
+	while ((*lst)->next->next)
 		(*lst) = (*lst)->next;
-	}
-	(*lst) = tmp;
-	ft_putstr("ra\n");
+	last_lst = (*lst)->next;
+	(*lst)->next = NULL;
+	last_lst->next = tmp;
+	(*lst) = last_lst;
+	ft_putstr("rra\n");
 }
 
-void	rb(t_list **lst)
+void	rrb(t_list **lst)
 {
 	t_list	*tmp;
-	int		swap;
+	t_list	*last_lst;
 
-	if (!(*lst))
-		return ;
-	tmp = *lst;
-	while ((*lst)->next)
-	{
-		swap = (*lst)->nb;
-		(*lst)->nb = (*lst)->next->nb;
-		(*lst)->next->nb = swap;
+	tmp = (*lst);
+	while ((*lst)->next->next)
 		(*lst) = (*lst)->next;
-	}
-	(*lst) = tmp;
-	ft_putstr("rb\n");
+	last_lst = (*lst)->next;
+	(*lst)->next = NULL;
+	last_lst->next = tmp;
+	(*lst) = last_lst;
+	ft_putstr("rrb\n");
 }

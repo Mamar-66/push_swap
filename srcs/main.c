@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:11:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 17:38:33 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/01 12:10:46 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
+
 	if (argc >= 2 && !is_not_digit(argv[1]))
 	{
 		stack_gest(&stack_a, argv[1]);
@@ -28,11 +29,13 @@ stack_gest(&stack_b, argv[2]);
 		if (is_double(&stack_a))
 			exit (1);
 		affiche_stack(stack_a, stack_b);
-		rr(&stack_a, &stack_b);
+		pb(&stack_a, &stack_b);
+		pb(&stack_a, &stack_b);
 printf("\n");
 		affiche_stack(stack_a, stack_b);
 	}
 	free(stack_a);
+	free(stack_b);
 	return (0);
 }
 

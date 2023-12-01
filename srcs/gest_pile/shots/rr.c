@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:34:08 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 17:36:57 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/01 11:32:50 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	rr(t_list **lst_a, t_list **lst_b)
 {
-	ra_rb(lst_a);
-	ra_rb(lst_b);
+	ra(lst_a);
+	rb(lst_b);
+	ft_putstr("rr\n");
 }

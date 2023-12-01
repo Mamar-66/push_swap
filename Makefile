@@ -17,6 +17,9 @@ SRC		=	main.c \
 			gest_pile/shots/ss.c \
 			gest_pile/shots/ra_rb.c \
 			gest_pile/shots/rr.c \
+			gest_pile/shots/pa_pb.c \
+			gest_pile/shots/rra_rrb.c \
+			gest_pile/shots/rrr.c \
 \
 			utile/ft_atoi.c \
 			utile/ft_calloc.c \

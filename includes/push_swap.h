@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 17:37:14 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/01 11:47:27 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ typedef struct s_list
 	struct s_list	*next;
 }t_list;
 
-/*----------------------------------folder utile-------------------------------------------*/ 
+/*---------------------folder utile----------------*/
 void		ft_bzero(void *s, size_t n);
 void		ft_putstr(char *s);
 void		*ft_calloc(size_t count, size_t size);
 int			ft_atoi(const char *nptr);
+/*-------------------------------------------------*/
 
-/*----------------------------------folder gest_pile---------------------------------------*/
+/*-------------------folder gest_pile--------------*/
 // file add_pile.c
 char		*word_nb(char *str, int *start);
 void		stack_gest(t_list **lst, char *argv_str);
@@ -38,12 +39,18 @@ int			add_stack(t_list *lst, char *str, int *tr);
 // file cmp.c
 bool		cmp(int nb1, int nb2);
 // folder shots
-void		sa_sb(t_list **lst);
+void		sb(t_list **lst, bool write);
+void		sa(t_list **lst, bool write);
 void		ss(t_list **lst_a, t_list **lst_b);
-void		ra_rb(t_list **lst);
+void		ra(t_list **lst);
+void		rb(t_list **lst);
 void		rr(t_list **lst_a, t_list **lst_b);
-
-/*-----------------------------------------------------------------------------------------*/
+void		pa(t_list **src, t_list **dest);
+void		pb(t_list **src, t_list **dest);
+void		rra(t_list **lst);
+void		rrb(t_list **lst);
+void		rrr(t_list **lst_a, t_list **lst_b);
+/*-------------------------------------------------*/
 
 //error.c
 bool		is_not_digit(char *str);
