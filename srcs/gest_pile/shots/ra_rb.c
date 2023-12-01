@@ -6,13 +6,13 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:18:12 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/01 11:32:40 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/01 15:15:46 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	ra(t_list **lst)
+void	ra(t_list **lst, bool write)
 {
 	t_list	*tmp;
 	int		swap;
@@ -27,10 +27,11 @@ void	ra(t_list **lst)
 		(*lst) = (*lst)->next;
 	}
 	(*lst) = tmp;
-	ft_putstr("ra\n");
+	if (write)
+		ft_putstr("ra\n");
 }
 
-void	rb(t_list **lst)
+void	rb(t_list **lst, bool write)
 {
 	t_list	*tmp;
 	int		swap;
@@ -46,5 +47,6 @@ void	rb(t_list **lst)
 		(*lst) = (*lst)->next;
 	}
 	(*lst) = tmp;
-	ft_putstr("rb\n");
+	if (write)
+		ft_putstr("rb\n");
 }

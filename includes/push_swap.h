@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/01 11:47:27 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/01 15:18:04 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ bool		cmp(int nb1, int nb2);
 void		sb(t_list **lst, bool write);
 void		sa(t_list **lst, bool write);
 void		ss(t_list **lst_a, t_list **lst_b);
-void		ra(t_list **lst);
-void		rb(t_list **lst);
+void		ra(t_list **lst, bool write);
+void		rb(t_list **lst, bool write);
 void		rr(t_list **lst_a, t_list **lst_b);
 void		pa(t_list **src, t_list **dest);
 void		pb(t_list **src, t_list **dest);
-void		rra(t_list **lst);
-void		rrb(t_list **lst);
+void		rra(t_list **lst, bool write);
+void		rrb(t_list **lst, bool write);
 void		rrr(t_list **lst_a, t_list **lst_b);
 /*-------------------------------------------------*/
 

@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:11:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/01 12:10:46 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/01 15:56:19 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ stack_gest(&stack_b, argv[2]);
 		if (is_double(&stack_a))
 			exit (1);
 		affiche_stack(stack_a, stack_b);
-		pb(&stack_a, &stack_b);
-		pb(&stack_a, &stack_b);
+		rrb(&stack_b, true);
 printf("\n");
 		affiche_stack(stack_a, stack_b);
 	}
