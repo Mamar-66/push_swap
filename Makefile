@@ -12,6 +12,7 @@ SRC		=	main.c \
 \
 			gest_pile/add_pile.c \
 			gest_pile/cmp.c \
+			gest_pile/one_two_three.c \
 \
 			gest_pile/shots/sa_sb.c \
 			gest_pile/shots/ss.c \
@@ -24,7 +25,8 @@ SRC		=	main.c \
 			utile/ft_atoi.c \
 			utile/ft_calloc.c \
 			utile/ft_putstr.c \
-			utile/ft_bzero.c
+			utile/ft_bzero.c \
+			utile/len_lst.c
 
 SRCS	=	$(addprefix $(SRC_PATH), $(SRC))
 

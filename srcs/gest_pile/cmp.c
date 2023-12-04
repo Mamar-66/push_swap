@@ -6,15 +6,23 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:20:59 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 16:24:22 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/04 17:55:43 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-bool	cmp(int nb1, int nb2)
+bool	cmp(t_list *lst)
 {
-	if (nb1 > nb2)
-		return (true);
-	return (false);
+	t_list	*tmp;
+	
+	tmp = lst;
+	while (lst->next)
+	{
+		if (lst->nb > lst->next->nb)
+			return (false);
+		lst = lst->next;
+	}
+	lst = tmp;
+	return (true);
 }

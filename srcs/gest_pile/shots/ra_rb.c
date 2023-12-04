@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:18:12 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/01 15:15:46 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/04 16:22:51 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ra(t_list **lst, bool write)
 {
 	t_list	*tmp;
 	int		swap;
+
 	if (!(*lst))
 		return ;
 	tmp = *lst;
