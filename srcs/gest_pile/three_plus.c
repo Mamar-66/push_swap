@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmp.c                                              :+:      :+:    :+:   */
+/*   three_plus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 16:20:59 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/04 20:12:14 by omfelk           ###   ########.fr       */
+/*   Created: 2023/12/05 11:13:01 by omfelk            #+#    #+#             */
+/*   Updated: 2023/12/05 11:34:30 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-bool	cmp(t_list *lst)
+/* void	three_plus(t_list **lst_a, t_list **lst_b)
 {
-	t_list	*tmp;
 
-	tmp = lst;
-	while (lst->next)
-	{
-		if (lst->nb > lst->next->nb)
-			return (false);
-		lst = lst->next;
-	}
-	lst = tmp;
-	return (true);
-}
+} */

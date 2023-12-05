@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:06:44 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/01 11:58:28 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/05 12:56:34 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,34 @@
 
 void	sa(t_list **lst, bool write)
 {
-	int	swap;
+	int		nb;
+	int		pose;
 
 	if (!(*lst) || !(*lst)->next)
 		return ;
-	swap = (*lst)->nb;
+	nb = (*lst)->nb;
+	pose = (*lst)->pose;
 	(*lst)->nb = (*lst)->next->nb;
-	(*lst)->next->nb = swap;
+	(*lst)->pose = (*lst)->next->pose;
+	(*lst)->next->nb = nb;
+	(*lst)->next->pose = pose;
 	if (write)
 		ft_putstr("sa\n");
 }
 
 void	sb(t_list **lst, bool write)
 {
-	int	swap;
+	int		nb;
+	int		pose;
 
 	if (!(*lst) || !(*lst)->next)
 		return ;
-	swap = (*lst)->nb;
+	nb = (*lst)->nb;
+	pose = (*lst)->pose;
 	(*lst)->nb = (*lst)->next->nb;
-	(*lst)->next->nb = swap;
+	(*lst)->pose = (*lst)->next->pose;
+	(*lst)->next->nb = nb;
+	(*lst)->next->pose = pose;
 	if (write)
 		ft_putstr("sb\n");
 }

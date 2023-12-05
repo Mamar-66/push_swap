@@ -12,7 +12,9 @@ SRC		=	main.c \
 \
 			gest_pile/add_pile.c \
 			gest_pile/cmp.c \
-			gest_pile/one_two_three.c \
+			gest_pile/one_three.c \
+			gest_pile/three_plus.c \
+			gest_pile/add_pose.c \
 \
 			gest_pile/shots/sa_sb.c \
 			gest_pile/shots/ss.c \

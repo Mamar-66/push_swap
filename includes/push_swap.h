@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/04 17:52:42 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/05 11:28:31 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_list
 {
 	int				nb;
+	int				pose;
 	struct s_list	*next;
 }t_list;
 
@@ -34,10 +35,21 @@ int			len_lst(t_list *lst);
 
 /*-------------------folder gest_pile--------------*/
 // file add_pile.c
-char		*word_nb(char *str, int *start);
+void		stack_gest(t_list **lst, int ac, char **argv_str);
+void		three_plus(t_list **lst_a, t_list **lst_b);
+void		one_three(t_list **lst_a);
 bool		cmp(t_list *lst);
-void		stack_gest(t_list **lst, char *argv_str);
+char		*word_nb(char *str, int *start);
+// file add_stack.c
 int			add_stack(t_list *lst, char *str, int *tr);
+void		rang(t_list **lst, int int_max);
+int			max(t_list **lst);
+/////////////////
+// file add_pose.c
+void		pre_add_pose(t_list **lst_a, t_list **lst_b);
+void		add_pose(t_list **lst);
+//////////////////
+/*---------------------------------------------------*/
 
 // folder shots
 void		sb(t_list **lst, bool write);
@@ -54,11 +66,8 @@ void		rrr(t_list **lst_a, t_list **lst_b);
 /*-------------------------------------------------*/
 
 //error.c
-bool		is_not_digit(char *str);
+bool		is_not_digit(char **str);
 bool		is_double(t_list **lst);
 
-/*--------------folder if_three_n------------------*/
-void		one_two_three_n(t_list **lst);
-/*-------------------------------------------------*/
-
 #endif
+

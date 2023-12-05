@@ -6,35 +6,35 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:59:39 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 14:25:41 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/04 23:33:55 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-bool	is_not_digit(char *str)
+bool	is_not_digit(char **str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (str[i])
+	j = 1;
+	while (str[j])
 	{
-		if ((str[i] < '0' || str[i] > '9') && str[i] != '-' && str[i] != ' ')
+		while (str[j][i])
 		{
-			ft_putstr("Error not everything is digital\n");
-			return (true);
+			if ((str[j][i] < '0' || str[j][i] > '9')
+			&& str[j][i] != '-' && str[j][i] != ' ')
+				return (ft_putstr("Error not everything is digital\n"), true);
+			if (str[j][i] == '-' && str[j][i + 1] == '-')
+				return (ft_putstr("Error the caract '-' is double\n"), true);
+			if (str[j][i] == '-' && (str[j][i + 1] < '0'
+				|| str[j][i + 1] > '9'))
+				return (ft_putstr("Error not everything is digitall\n"), true);
+			i++;
 		}
-		if (str[i] == '-' && str[i + 1] == '-')
-		{
-			ft_putstr("Error the caract '-' is double\n");
-			return (true);
-		}
-		if (str[i] == '-' && (str[i + 1] < '0' || str[i + 1] > '9'))
-		{
-			ft_putstr("Error not everything is digital\n");
-			return (true);
-		}
-		i++;
+		i = 0;
+		j++;
 	}
 	return (false);
 }

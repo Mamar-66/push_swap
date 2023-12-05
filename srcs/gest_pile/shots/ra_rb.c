@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:18:12 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/04 16:22:51 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/05 12:30:18 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,36 @@
 
 void	ra(t_list **lst, bool write)
 {
-	t_list	*tmp;
-	int		swap;
+	t_list	*head;
+	t_list	*tail;
 
 	if (!(*lst))
 		return ;
-	tmp = *lst;
+	head = (*lst);
 	while ((*lst)->next)
-	{
-		swap = (*lst)->nb;
-		(*lst)->nb = (*lst)->next->nb;
-		(*lst)->next->nb = swap;
 		(*lst) = (*lst)->next;
-	}
-	(*lst) = tmp;
+	tail = (*lst);
+	(*lst) = head->next;
+	head->next = NULL;
+	tail->next = head; 
 	if (write)
 		ft_putstr("ra\n");
 }
 
 void	rb(t_list **lst, bool write)
 {
-	t_list	*tmp;
-	int		swap;
+	t_list	*head;
+	t_list	*tail;
 
 	if (!(*lst))
 		return ;
-	tmp = *lst;
+	head = (*lst);
 	while ((*lst)->next)
-	{
-		swap = (*lst)->nb;
-		(*lst)->nb = (*lst)->next->nb;
-		(*lst)->next->nb = swap;
 		(*lst) = (*lst)->next;
-	}
-	(*lst) = tmp;
+	tail = (*lst);
+	(*lst) = head->next;
+	head->next = NULL;
+	tail->next = head; 
 	if (write)
 		ft_putstr("rb\n");
 }

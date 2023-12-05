@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:42:39 by omfelk            #+#    #+#             */
-/*   Updated: 2023/11/30 16:09:17 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/04 23:43:32 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,32 @@ char	*word_nb(char *str, int *start)
 	return (nb_str);
 }
 
-void	stack_gest(t_list **lst, char *argv_str)
+void	stack_gest(t_list **lst, int ac, char **argv_str)
 {
 	char	*str;
-	int		start;
-	int		tr;
+	int		start_tr[2];
+	int		i;
 
-	start = 0;
-	tr = 0;
-	if (word_nb(argv_str, &start))
+	start_tr[0] = 0;
+	start_tr[1] = 0;
+	i = 0;
+	if (word_nb(argv_str[1], &start_tr[0]))
 	{
 		if (!(*lst))
 			*lst = (t_list *)malloc(sizeof(t_list));
 		if (!*lst)
 			return ;
 	}
-	start = 0;
-	while (1)
+	while (++i < ac)
 	{
-		str = word_nb(argv_str, &start);
-		if (!str)
-			break ;
-		add_stack(*lst, str, &tr);
+		start_tr[0] = 0;
+		while (1)
+		{
+			str = word_nb(argv_str[i], &start_tr[0]);
+			if (!str)
+				break ;
+			add_stack(*lst, str, &start_tr[1]);
+		}
 	}
 }
 
