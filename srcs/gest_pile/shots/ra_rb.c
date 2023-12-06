@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:18:12 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/05 12:30:18 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/06 16:34:33 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ra(t_list **lst, bool write)
 	tail = (*lst);
 	(*lst) = head->next;
 	head->next = NULL;
-	tail->next = head; 
+	tail->next = head;
 	if (write)
 		ft_putstr("ra\n");
 }
@@ -43,7 +43,7 @@ void	rb(t_list **lst, bool write)
 	tail = (*lst);
 	(*lst) = head->next;
 	head->next = NULL;
-	tail->next = head; 
+	tail->next = head;
 	if (write)
 		ft_putstr("rb\n");
 }

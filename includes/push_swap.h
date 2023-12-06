@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/05 11:28:31 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/06 16:56:26 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 	int				nb;
 	int				pose;
 	struct s_list	*next;
-}t_list;
+}	t_list;
 
 /*---------------------folder utile----------------*/
 void		ft_bzero(void *s, size_t n);
@@ -49,9 +49,19 @@ int			max(t_list **lst);
 void		pre_add_pose(t_list **lst_a, t_list **lst_b);
 void		add_pose(t_list **lst);
 //////////////////
+// file three_plus.c
+int			find_mediane(t_list **lst_a);
+////////////////////
+// at_very_top.c
+void		put_everything_in_stack_a(t_list **lst_a, t_list **lst_b);
+void		add_very_top(t_list **lst_a, t_list **lst_b);
+int			chr_pose_lst(t_list **lst, int nb_chr);
+int			nb_closer(t_list **lst_a, t_list **lst_b);
+int			nb_closer_b(t_list **lst_a, t_list **lst_b);
+////////////////////
 /*---------------------------------------------------*/
 
-// folder shots
+/*-----------------folder shots---------------------*/
 void		sb(t_list **lst, bool write);
 void		sa(t_list **lst, bool write);
 void		ss(t_list **lst_a, t_list **lst_b);
@@ -70,4 +80,3 @@ bool		is_not_digit(char **str);
 bool		is_double(t_list **lst);
 
 #endif
-

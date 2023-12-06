@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:52:11 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/05 11:28:58 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/06 10:41:17 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	one_three(t_list **lst)
 {
+	if (!lst || !(*lst))
+		return ;
 	if (len_lst(*lst) == 3)
 		rang(lst, max(lst));
 	if ((*lst)->nb > (*lst)->next->nb)

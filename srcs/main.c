@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:11:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/05 12:39:17 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/06 16:36:50 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ int	main(int argc, char **argv)
 		stack_gest(&stack_a, argc, argv);
 		if (is_double(&stack_a) || cmp(stack_a))
 			exit (1);
-		pre_add_pose(&stack_a, &stack_b);
 affiche_stack(stack_a, stack_b);
 		if (len_lst(stack_a) <= 3)
 			one_three(&stack_a);
+		if (len_lst(stack_a) > 3)
+			three_plus(&stack_a, &stack_b);
 affiche_stack(stack_a, stack_b);
 	}
 	free(stack_a);
