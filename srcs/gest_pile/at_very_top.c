@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:33:12 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/06 17:38:52 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/07 16:47:42 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 void	add_very_top(t_list **lst_a, t_list **lst_b)
 {
-	put_everything_in_stack_a(lst_a, lst_b);
+	int	way;
+
+	while ((*lst_b))
+	{
+		way = the_way(lst_a, lst_b);
+		if (way > 0)
+			put_everything_in_stack_a(lst_a, lst_b);
+		else
+			bottom(lst_a, lst_b);
+	}
 }
 
 void	put_everything_in_stack_a(t_list **lst_a, t_list **lst_b)
@@ -22,22 +31,19 @@ void	put_everything_in_stack_a(t_list **lst_a, t_list **lst_b)
 	int		size_lst;
 	int		pose_closer;
 
-	while ((*lst_b))
+	pose_closer = nb_closer(lst_a, lst_b);
+	size_lst = len_lst(*lst_a);
+	if (pose_closer > size_lst / 2)
 	{
-		pose_closer = nb_closer(lst_a, lst_b);
-		size_lst = len_lst(*lst_a);
-		if (pose_closer > size_lst / 2)
-		{
-			while (pose_closer != (*lst_a)->pose)
-				rra(lst_a, true);
-			pa(lst_b, lst_a);
-		}
-		else
-		{
-			while (pose_closer != (*lst_a)->pose)
-				ra(lst_a, true);
-			pa(lst_b, lst_a);
-		}
+		while (pose_closer != (*lst_a)->pose)
+			rra(lst_a, true);
+		pa(lst_b, lst_a);
+	}
+	else
+	{
+		while (pose_closer != (*lst_a)->pose)
+			ra(lst_a, true);
+		pa(lst_b, lst_a);
 	}
 }
 
@@ -45,19 +51,17 @@ int	nb_closer(t_list **lst_a, t_list **lst_b)
 {
 	t_list	*tmp;
 	int		closer;
-	int		nb_max;
 	int		tmp_count;
 	int		min_count[2];
 
 	pre_add_pose(lst_a, lst_b);
-	nb_max = max(lst_a);
 	tmp = (*lst_a);
-	min_count[0] = 1500;
+	min_count[0] = 2000000;
 	while (tmp)
 	{
 		closer = (*lst_b)->nb;
 		tmp_count = 0;
-		while (closer != tmp->nb && closer++ <= nb_max)
+		while (closer != tmp->nb && closer++ < (max(lst_a) + 1))
 			tmp_count++;
 		if (min_count[0] > tmp_count)
 		{
@@ -69,7 +73,7 @@ int	nb_closer(t_list **lst_a, t_list **lst_b)
 	return (min_count[1]);
 }
 
-int	nb_closer_b(t_list **lst_a, t_list **lst_b)
+/* int	nb_closer_b(t_list **lst_a, t_list **lst_b)
 {
 	t_list	*tmp_b;
 	int		closer_tmp;
@@ -79,16 +83,16 @@ int	nb_closer_b(t_list **lst_a, t_list **lst_b)
 	tmp_b = (*lst_b);
 	closer = 1500;
 	pose = 0;
-	while (tmp_b)
+	while ((*lst_b))
 	{
-		closer_tmp = nb_closer(lst_a, &tmp_b);
+		closer_tmp = nb_closer(lst_a, lst_b);
 		if (closer > closer_tmp)
 		{
 			closer = closer_tmp;
-			pose = tmp_b->pose;
+			pose = (*lst_b)->pose;
 		}
-		tmp_b = tmp_b->next;
+		(*lst_b) = (*lst_b)->next;
 	}
-printf("fille b %d\n", pose);
+	(*lst_b) = tmp_b;
 	return (pose);
-}
+} */

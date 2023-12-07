@@ -6,13 +6,11 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:01 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/06 17:33:16 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/07 16:48:57 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-void	rang_tab(int	*tab_all_vall);
 
 void	three_plus(t_list **lst_a, t_list **lst_b)
 {
@@ -22,15 +20,16 @@ void	three_plus(t_list **lst_a, t_list **lst_b)
 	nb_lst = len_lst((*lst_a));
 	mediane = find_mediane(lst_a);
 printf("mediane = %d\n", mediane);
-	while (nb_lst-- > 3)
+	pb(lst_a, lst_b);
+	while (--nb_lst > 3)
 	{
 		pb(lst_a, lst_b);
-		if ((*lst_b)->nb < mediane)
+		if ((*lst_b)->nb < mediane && (*lst_b)->next->nb > mediane)
 			rb(lst_b, true);
 	}
-	nb_closer_b(lst_a, lst_b);
-	// one_three(lst_a);
+	one_three(lst_a);
 	//add_very_top(lst_a, lst_b);
+	//the_end(lst_a);
 }
 
 int	find_mediane(t_list **lst_a)
@@ -38,6 +37,7 @@ int	find_mediane(t_list **lst_a)
 	t_list	*tmp;
 	int		*tab_all_vall;
 	int		i;
+	int		med;
 
 	i = 0;
 	tmp = (*lst_a);
@@ -51,10 +51,12 @@ int	find_mediane(t_list **lst_a)
 		i++;
 	}
 	rang_tab(tab_all_vall);
-	return (tab_all_vall[i / 2]);
+	med = tab_all_vall[i / 2];
+	free(tab_all_vall);
+	return (med);
 }
 
-void	rang_tab(int	*tab_all_vall)
+void	rang_tab(int *tab_all_vall)
 {
 	int	swap;
 	int	i;
@@ -73,10 +75,28 @@ void	rang_tab(int	*tab_all_vall)
 			i++;
 	}
 }
-/* 
-int	nb_in_lst(t_list **lst_a, t_list **lst_b, int nb)
-{
-	int	pose;
 
+void	the_end(t_list **lst)
+{
+	int	min;
+
+	min = min_nb(lst);
+	while ((*lst)->nb != min)
+		rra(lst, true);
 }
- */
+
+int	min_nb(t_list **lst)
+{
+	t_list	*tmp;
+	int		min;
+
+	tmp = (*lst);
+	min = tmp->nb;
+	while (tmp)
+	{
+		if (tmp->nb < min)
+			min = tmp->nb;
+		tmp = tmp->next;
+	}
+	return (min);
+}
