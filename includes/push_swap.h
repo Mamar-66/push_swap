@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/07 11:27:00 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/11 17:21:04 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,24 @@ typedef struct s_list
 {
 	int				nb;
 	int				pose;
+	int				shorts_up;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_list_instruction
+{
+	int			nb_a;
+	int			pose_a;
+	int			shorts_up_a;
+	int			nb_b;
+	int			pose_b;
+	int			shorts_up_b;
+	int			min_c;
+	int			scor;
+	int			way;
+}	instrs;
+
+void	affiche_stack(t_list *stack_a, t_list *stack_b);
 
 /*---------------------folder utile----------------*/
 void		ft_bzero(void *s, size_t n);
@@ -56,17 +72,23 @@ int			find_mediane(t_list **lst_a);
 int			min_nb(t_list **lst);
 ////////////////////
 // at_very_top.c
-void		put_everything_in_stack_a(t_list **lst_a, t_list **lst_b);
+void		rempl_instrs(t_list **lst_a, t_list **lst_b, int count, instrs **instrs);
 void		add_very_top(t_list **lst_a, t_list **lst_b);
+int			scor_shorts_up(t_list **lst_a, t_list **lst_b);
+int			closer(t_list **lst_a, t_list **lst_b, int min_lst_a, int max_lst_a);
 int			nb_closer_moin(t_list **lst_a, t_list **lst_b);
-//int			chr_pose_lst(t_list **lst, int nb_chr);
-//int			nb_closer_b(t_list **lst_a, t_list **lst_b);
 ////////////////////
 // at_the_bottom.c
 void		bottom(t_list **lst_a, t_list **lst_b);
+int			nb_closer(t_list **lst_a, t_list **lst_b, instrs **instruction);
 int			the_way(t_list **lst_a, t_list **lst_b);
-int			nb_closer(t_list **lst_a, t_list **lst_b);
 //////////////////
+// rang_in_stach_a.c
+void		gest_shorts(t_list **lst_a, t_list **lst_b, instrs **lst_instrs);
+bool		up_a_and_up_b(t_list **lst_a, t_list **lst_b, instrs **lst_instrs);
+void		up_b(t_list **lst_b, instrs **lst_instrs);
+void		up_a(t_list **lst_b, instrs **lst_instrs);
+/////////////////////
 /*---------------------------------------------------*/
 
 /*-----------------folder shots---------------------*/

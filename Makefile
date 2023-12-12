@@ -17,6 +17,7 @@ SRC		=	main.c \
 			gest_pile/add_pose.c \
 			gest_pile/at_very_top.c \
 			gest_pile/at_the_bottom.c \
+			gest_pile/rang_in_stach_a.c \
 \
 			gest_pile/shots/sa_sb.c \
 			gest_pile/shots/ss.c \

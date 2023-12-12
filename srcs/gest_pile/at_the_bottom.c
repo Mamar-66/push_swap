@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:04:04 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/07 16:27:13 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/08 17:22:36 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void	bottom(t_list **lst_a, t_list **lst_b)
 	pose_closer = nb_closer_moin(lst_a, lst_b);
 	size_lst = len_lst(*lst_a);
 	tmp = (*lst_a);
-//printf("closer %d\n", pose_closer);
 	while (tmp->next)
 		tmp = tmp->next;
-//printf("%d pose  %d\n", (*lst_a)->nb, (*lst_a)->pose);
 	if (pose_closer > size_lst / 2)
 	{
 		while (pose_closer++ > size_lst)
@@ -41,12 +39,26 @@ void	bottom(t_list **lst_a, t_list **lst_b)
 
 int	the_way(t_list **lst_a, t_list **lst_b)
 {
-	int		nb_max;
+	int		count;;
+	int		tmp;;
+	int		nb_b;
 
-	nb_max = max(lst_a);
-	if ((*lst_b)->nb > nb_max)
-		return (-1);
-	return (1);
+	count = 0;
+	tmp = 0;
+	nb_b = (*lst_b)->nb;
+	while (nb_b++ < (*lst_a)->nb)
+		count++;
+	tmp = count;
+	count = 0;
+	nb_b = (*lst_b)->nb;
+	while (nb_b-- > (*lst_a)->nb)
+		count++;
+	if (count != 0)
+	{
+		count *= -1;
+		return (count);
+	}
+	return (tmp);
 }
 
 int	nb_closer_moin(t_list **lst_a, t_list **lst_b)
