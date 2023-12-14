@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:11:55 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/12 17:00:01 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/14 23:24:03 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	main(int argc, char **argv)
 		stack_gest(&stack_a, argc, argv);
 		if (is_double(&stack_a) || cmp(stack_a))
 			exit (1);
-affiche_stack(stack_a, stack_b);
+		// affiche_stack(stack_a, stack_b);
 		if (len_lst(stack_a) <= 3)
 			one_three(&stack_a);
 		if (len_lst(stack_a) > 3)
 			three_plus(&stack_a, &stack_b);
-affiche_stack(stack_a, stack_b);
+		// affiche_stack(stack_a, stack_b);
 	}
 	free(stack_a);
 	free(stack_b);
@@ -40,13 +40,15 @@ void	affiche_stack(t_list *stack_a, t_list *stack_b)
 {
 	while ((stack_a))
 	{
-		printf("shots up = %d stack_a pose = %d : vale = %d\n", stack_a->shorts_up, (stack_a)->pose, (stack_a)->nb);
+		printf("shots up = %d stack_a pose = %d : vale = %d\n",
+			stack_a->shorts_up, (stack_a)->pose, (stack_a)->nb);
 		stack_a = (stack_a)->next;
 	}
 	printf("\n");
 	while ((stack_b))
 	{
-		printf("             shots up = %d stack_b pose = %d : vale = %d\n", stack_b->shorts_up, (stack_b)->pose, (stack_b)->nb);
+		printf("             shots up = %d stack_b pose = %d : vale = %d\n",
+			stack_b->shorts_up, (stack_b)->pose, (stack_b)->nb);
 		stack_b = (stack_b)->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:01 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/12 16:57:21 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/14 22:37:10 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 void	three_plus(t_list **lst_a, t_list **lst_b)
 {
-	int		mediane;
-	int		nb_lst;
+	//push_in_b(lst_a, lst_b);
+	int	med;
+	int	size;
 
-	nb_lst = len_lst((*lst_a));
-	mediane = find_mediane(lst_a);
+	size = len_lst((*lst_a));
+	med = find_mediane(lst_a);
+// printf("med %d\n", med);
 	pb(lst_a, lst_b);
-	while (--nb_lst > 3)
+	while (--size > 3)
 	{
 		pb(lst_a, lst_b);
-		if ((*lst_b)->nb < mediane && (*lst_b)->next->nb > mediane)
+		if ((*lst_b)->nb > med)
 			rb(lst_b, true);
 	}
 	one_three(lst_a);
 	add_very_top(lst_a, lst_b);
+	// while ((*lst_b)->next)
+	// 	pa(lst_b, lst_a);
+	// pa(lst_b, lst_a);
 	the_end(lst_a);
 }
 
@@ -90,10 +95,10 @@ void	the_end(t_list **lst)
 		while ((*lst)->nb != min)
 			rra(lst, true);
 	}
-	else if ((*lst)->shorts_up > 0)
+	else if (tmp_a->shorts_up > 0)
 	{
 		while ((*lst)->nb != min)
-			ra(lst, true);		
+			ra(lst, true);
 	}
 }
 
