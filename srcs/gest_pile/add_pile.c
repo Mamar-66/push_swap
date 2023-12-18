@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:42:39 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/04 23:43:32 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/18 11:32:20 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,36 +42,35 @@ char	*word_nb(char *str, int *start)
 void	stack_gest(t_list **lst, int ac, char **argv_str)
 {
 	char	*str;
-	int		start_tr[2];
-	int		i;
+	int		start_tr[3];
 
 	start_tr[0] = 0;
 	start_tr[1] = 0;
-	i = 0;
-	if (word_nb(argv_str[1], &start_tr[0]))
-	{
-		if (!(*lst))
-			*lst = (t_list *)malloc(sizeof(t_list));
-		if (!*lst)
-			return ;
-	}
-	while (++i < ac)
+	start_tr[2] = 0;
+	str = NULL;
+	if (!(*lst))
+		*lst = ft_calloc(sizeof(t_list), 1);
+	if (!*lst)
+		return ;
+	while (++start_tr[2] < ac)
 	{
 		start_tr[0] = 0;
 		while (1)
 		{
-			str = word_nb(argv_str[i], &start_tr[0]);
+			str = word_nb(argv_str[start_tr[2]], &start_tr[0]);
 			if (!str)
 				break ;
 			add_stack(*lst, str, &start_tr[1]);
+			free(str);
 		}
 	}
 }
 
-int	add_stack(t_list *lst, char *str, int *tr)
+void	add_stack(t_list *lst, char *str, int *tr)
 {
 	t_list		*new_lst;
 
+	new_lst = NULL;
 	while (lst->next)
 		lst = lst->next;
 	if (*tr == 0)
@@ -83,10 +82,9 @@ int	add_stack(t_list *lst, char *str, int *tr)
 	{
 		new_lst = (t_list *)malloc(sizeof(t_list));
 		if (!new_lst)
-			return (1);
+			return ;
 		new_lst->nb = ft_atoi(str);
 		lst->next = new_lst;
 		new_lst->next = NULL;
 	}
-	return (0);
 }

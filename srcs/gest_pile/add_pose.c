@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:20:29 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/14 22:30:03 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/15 16:11:09 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ int	scor_shorts_up(t_list **lst_a, t_list **lst_b)
 
 int	next_shorts_up(t_list **lst_a, t_list **lst_b)
 {
-	int shorts_up_a;
-	int shorts_up_b;
+	int		shorts_up_a;
+	int		shorts_up_b;
+
 	if ((*lst_a)->shorts_up > 0)
 		shorts_up_a = (*lst_a)->shorts_up;
 	else
@@ -80,7 +81,8 @@ int	next_shorts_up(t_list **lst_a, t_list **lst_b)
 	return (shorts_up_a + shorts_up_b);
 }
 
-int	next_shorts_pose_result(int	lst_action, int size_action, int lst_subit, int size_subit)
+int	next_shorts_pose_result(int lst_action, int size_action,
+							int lst_subit, int size_subit)
 {
 	if (lst_action < size_action / 2)
 	{
@@ -105,14 +107,3 @@ int	next_shorts_pose_result(int	lst_action, int size_action, int lst_subit, int 
 	else
 		return (size_subit - lst_subit);
 }
-
-	// int	up_a[2];
-	// int	up_b[2];
-	// int	result;
-
-	// if ((*lst_a)->shorts_up > 0 && (*lst_b)->shorts_up < 0)
-	// {
-	// 	up_a[0] = (*lst_a)->shorts_up;
-	// 	up_b[0] = next_shorts_pose_result((*lst_a)->pose, len_lst(lst_a),
-	// 				(*lst_b)->pose, len_lst(lst_b));
-	// }

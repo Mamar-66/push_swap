@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:33:12 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/14 23:24:09 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/15 16:07:35 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,13 @@ void	add_very_top(t_list **lst_a, t_list **lst_b)
 	while ((*lst_b))
 	{
 		nb_closer(lst_a, lst_b, &instruction);
-// printf("nb b %d\n", instruction->nb_b);
-// printf("short b %d\n", instruction->shorts_up_b);
-// printf("nb a %d\n", instruction->nb_a);
-// printf("short a %d\n", instruction->shorts_up_a);
-// printf("scor %d\n", instruction->scor);
-// affiche_stack(*lst_a, *lst_b);
 		gest_shorts(lst_a, lst_b, &instruction);
 		pre_add_pose(lst_a, lst_b);
 	}
 	free(instruction);
 }
 
-int	nb_closer(t_list **lst_a, t_list **lst_b, t_instrs **instruction)
+void	nb_closer(t_list **lst_a, t_list **lst_b, t_instrs **instruction)
 {
 	t_list		*tmp_a;
 	t_list		*tmp_aa;
@@ -61,7 +55,6 @@ int	nb_closer(t_list **lst_a, t_list **lst_b, t_instrs **instruction)
 		}
 		tmp_a = tmp_a->next;
 	}
-	return (1);
 }
 
 void	rempl_instrs(t_list **lst_a, t_list **lst_b, int count,

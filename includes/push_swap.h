@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:50:57 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/14 22:12:46 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/18 11:26:49 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ typedef struct s_list_instruction
 	int			nb_b;
 	int			pose_b;
 	int			shorts_up_b;
-	int			min_c;
 	int			scor;
-	int			way;
 }	t_instrs;
 
 void	affiche_stack(t_list *stack_a, t_list *stack_b);
+void	free_node(t_list **lst);
 
 /*---------------------folder utile----------------*/
 void	ft_bzero(void *s, size_t n);
@@ -48,66 +47,51 @@ void	*ft_calloc(size_t count, size_t size);
 int		ft_atoi(const char *nptr);
 int		len_lst(t_list *lst);
 /*-------------------------------------------------*/
+// file add_stack.c
+void	three_plus(t_list **lst_a, t_list **lst_b);
 
 /*-------------------folder gest_pile--------------*/
-// one_three.c
-void	one_three(t_list **lst_a);
-void	rang(t_list **lst, int int_max);
-int		max(t_list **lst);
-
-///////////////
 // file add_pile.c
-void	stack_gest(t_list **lst, int ac, char **argv_str);
-void	three_plus(t_list **lst_a, t_list **lst_b);
-bool	cmp(t_list *lst);
 char	*word_nb(char *str, int *start);
-// file add_stack.c
-int		add_stack(t_list *lst, char *str, int *tr);
+void	stack_gest(t_list **lst, int ac, char **argv_str);
+void	add_stack(t_list *lst, char *str, int *tr);
 /////////////////
 // file add_pose.c
 void	pre_add_pose(t_list **lst_a, t_list **lst_b);
 void	add_pose(t_list **lst);
 int		scor_shorts_up(t_list **lst_a, t_list **lst_b);
 int		next_shorts_up(t_list **lst_a, t_list **lst_b);
+int		next_shorts_pose_result(int lst_action, int size_action,
+			int lst_subit, int size_subit);
 //////////////////
-// file three_plus.c
-void	add_pose(t_list **lst);
-void	rang_tab(int *tab_all_vall);
-void	the_end(t_list **lst);
-int		find_mediane(t_list **lst_a);
-int		min_nb(t_list **lst);
-////////////////////
 // at_very_top.c
+void	add_very_top(t_list **lst_a, t_list **lst_b);
+void	nb_closer(t_list **lst_a, t_list **lst_b, t_instrs **instruction);
 void	rempl_instrs(t_list **lst_a, t_list **lst_b,
 			int count, t_instrs **instrs);
-void	brows_lst(t_list **lst_a, t_list **lst_b);
-void	add_very_top(t_list **lst_a, t_list **lst_b);
 int		closer(t_list **lst_a, t_list **lst_b, int min_lst_a, int max_lst_a);
-int		nb_closer_moin(t_list **lst_a, t_list **lst_b);
+void	brows_lst(t_list **lst_a, t_list **lst_b);
 ////////////////////
-// at_the_bottom.c
-void	bottom(t_list **lst_a, t_list **lst_b);
-int		nb_closer(t_list **lst_a, t_list **lst_b, t_instrs **instruction);
-int		the_way(t_list **lst_a, t_list **lst_b);
-//////////////////
+// cmp.c
+bool	cmp(t_list *lst);
+/////////
+// one_three.c
+void	one_three(t_list **lst_a);
+void	rang(t_list **lst, int int_max);
+int		max(t_list **lst);
+///////////////
 // rang_in_stach_a.c
 void	gest_shorts(t_list **lst_a, t_list **lst_b, t_instrs **lst_instrs);
 bool	up_a_and_up_b(t_list **lst_a, t_list **lst_b, t_instrs **lst_instrs);
 void	up_b(t_list **lst_b, t_instrs **lst_instrs);
 void	up_a(t_list **lst_b, t_instrs **lst_instrs);
 /////////////////////
-// a_to_b.c
-void	rempl_instrs_for_b(t_list **lst_a, t_list **lst_b, int count,
-						t_instrs **instrs);
-void	push_in_b(t_list **lst_a, t_list **lst_b);
-void	instrs_places(t_list **lst_a, t_list **lst_b, t_instrs **instruction);
-void	brows_lst_for_b(t_list **lst_a, t_list **lst_b);
-int		closer_for_b(t_list **lst_a, t_list **lst_b, int min_lst_b, int max_lst_b);
-///////////
-// rang_in_stach_b.c
-void	gest_shorts_for_b(t_list **lst_a, t_list **lst_b, t_instrs **lst_instrs);
-void	down_b(t_list **lst_b, t_instrs **lst_instrs, int size);
-void	the_end_for_b(t_list **lst);
+// file three_plus.c
+void	three_plus(t_list **lst_a, t_list **lst_b);
+int		find_mediane(t_list **lst_a);
+void	rang_tab(int *tab_all_vall);
+void	the_end(t_list **lst);
+int		min_nb(t_list **lst);
 ////////////////////
 /*---------------------------------------------------*/
 

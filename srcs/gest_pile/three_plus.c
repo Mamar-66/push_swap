@@ -6,7 +6,7 @@
 /*   By: omfelk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:01 by omfelk            #+#    #+#             */
-/*   Updated: 2023/12/14 22:37:10 by omfelk           ###   ########.fr       */
+/*   Updated: 2023/12/15 16:13:25 by omfelk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	three_plus(t_list **lst_a, t_list **lst_b)
 {
-	//push_in_b(lst_a, lst_b);
 	int	med;
 	int	size;
 
 	size = len_lst((*lst_a));
 	med = find_mediane(lst_a);
-// printf("med %d\n", med);
 	pb(lst_a, lst_b);
 	while (--size > 3)
 	{
@@ -30,9 +28,6 @@ void	three_plus(t_list **lst_a, t_list **lst_b)
 	}
 	one_three(lst_a);
 	add_very_top(lst_a, lst_b);
-	// while ((*lst_b)->next)
-	// 	pa(lst_b, lst_a);
-	// pa(lst_b, lst_a);
 	the_end(lst_a);
 }
 
@@ -62,21 +57,28 @@ int	find_mediane(t_list **lst_a)
 
 void	rang_tab(int *tab_all_vall)
 {
-	int	swap;
-	int	i;
+	bool	order;
+	int		swap;
+	int		i;
 
 	i = 0;
-	while (tab_all_vall[i + 1])
+	order = true;
+	while (!order)
 	{
 		if (tab_all_vall[i] > tab_all_vall[i + 1])
 		{
 			swap = tab_all_vall[i];
 			tab_all_vall[i] = tab_all_vall[i + 1];
 			tab_all_vall[i + 1] = swap;
-			i = 0;
+			order = true;
 		}
 		else
+		{
+			order = false;
 			i++;
+		}
+		if (order == true && !tab_all_vall[i + 1])
+			i = 0;
 	}
 }
 
