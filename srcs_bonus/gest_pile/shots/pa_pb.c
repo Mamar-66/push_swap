@@ -22,7 +22,6 @@ void	pa(t_list **src, t_list **dest)
 	(*src)->next = (*dest);
 	(*dest) = (*src);
 	(*src) = tmp;
-	ft_putstr("pa\n");
 }
 
 void	pb(t_list **src, t_list **dest)
@@ -35,5 +34,4 @@ void	pb(t_list **src, t_list **dest)
 	(*src)->next = (*dest);
 	(*dest) = (*src);
 	(*src) = tmp;
-	ft_putstr("pb\n");
 }

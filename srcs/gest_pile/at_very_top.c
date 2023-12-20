@@ -23,7 +23,6 @@ void	add_very_top(t_list **lst_a, t_list **lst_b)
 	{
 		nb_closer(lst_a, lst_b, &instruction);
 		gest_shorts(lst_a, lst_b, &instruction);
-		pre_add_pose(lst_a, lst_b);
 	}
 	free(instruction);
 }

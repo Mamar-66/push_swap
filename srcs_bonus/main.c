@@ -16,9 +16,9 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	bool	OK_or_KO;
+	t_list		*stack_a;
+	t_list		*stack_b;
+	bool		ok_or_ko;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -30,14 +30,14 @@ int	main(int argc, char **argv)
 			free_node(&stack_a);
 			exit (1);
 		}
-		OK_or_KO = gest_stacks(&stack_a, &stack_b);
-		if (!OK_or_KO || stack_b != NULL)
+		ok_or_ko = gest_stacks(&stack_a, &stack_b);
+		if (!ok_or_ko || stack_b != NULL)
 			ft_putstr("KO\n");
-		if (OK_or_KO || stack_b == NULL)
+		else
 			ft_putstr("OK\n");
-		affiche_stack(stack_a, NULL);
 	}
 	free_node(&stack_a);
+	free_node(&stack_b);
 	return (1);
 }
 

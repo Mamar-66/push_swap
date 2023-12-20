@@ -23,10 +23,11 @@ bool	gest_stacks(t_list **lst_a, t_list **lst_b)
 	{
 		if (practical(lst_a, lst_b, string) == false)
 		{
-// printf("sting <%s>\n", string);
 			ft_putstr("command not found\n");
+			free(string);
 			exit (1);
 		}
+		free(string);
 		string = get_next_line(STDIN_FILENO);
 	}
 	return (cmp(*lst_a));
@@ -35,25 +36,25 @@ bool	gest_stacks(t_list **lst_a, t_list **lst_b)
 bool	practical(t_list **lst_a, t_list **lst_b, char *action)
 {
 	if (ft_strcmp(action, "sa"))
-		sa(lst_a, true);
+		sa(lst_a, false);
 	else if (ft_strcmp(action, "sb"))
-		sb(lst_b, true);
+		sb(lst_b, false);
 	else if (ft_strcmp(action, "ss"))
 		ss(lst_a, lst_b);
 	else if (ft_strcmp(action, "pa"))
-		pa(lst_a, lst_b);
+		pa(lst_b, lst_a);
 	else if (ft_strcmp(action, "pb"))
-		pb(lst_b, lst_a);
+		pb(lst_a, lst_b);
 	else if (ft_strcmp(action, "ra"))
-		ra(lst_a, true);
+		ra(lst_a, false);
 	else if (ft_strcmp(action, "rb"))
-		rb(lst_b, true);
+		rb(lst_b, false);
 	else if (ft_strcmp(action, "rr"))
 		rr(lst_a, lst_b);
 	else if (ft_strcmp(action, "rra"))
-		rra(lst_a, true);
+		rra(lst_a, false);
 	else if (ft_strcmp(action, "rrb"))
-		rrb(lst_b, true);
+		rrb(lst_b, false);
 	else if (ft_strcmp(action, "rrr"))
 		rrr(lst_a, lst_b);
 	else

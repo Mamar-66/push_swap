@@ -19,5 +19,4 @@ void	rrr(t_list **lst_a, t_list **lst_b)
 	write = false;
 	rra(lst_a, write);
 	rrb(lst_b, write);
-	ft_putstr("rrr\n");
 }

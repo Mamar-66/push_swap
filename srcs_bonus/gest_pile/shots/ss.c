@@ -21,5 +21,4 @@ void	ss(t_list **lst_a, t_list **lst_b)
 		return ;
 	sa(lst_a, write);
 	sb(lst_b, write);
-	ft_putstr("ss\n");
 }
